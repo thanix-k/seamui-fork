@@ -1,0 +1,314 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+
+import { InstallCommand } from "@/components/site/install-command"
+
+export const metadata: Metadata = {
+  title: "Components — seamui",
+}
+
+const COMPONENTS = [
+  {
+    name: "button",
+    title: "Button",
+    desc: "Pressable action with depth motion.",
+  },
+  { name: "toggle", title: "Toggle", desc: "Two-state button." },
+  {
+    name: "toggle-group",
+    title: "Toggle Group",
+    desc: "Keys rise from a shared well.",
+  },
+  {
+    name: "toolbar",
+    title: "Toolbar",
+    desc: "Roving-focus control strip.",
+  },
+  { name: "input", title: "Input", desc: "Field-aware text input." },
+  { name: "textarea", title: "Textarea", desc: "Auto-growing entry well." },
+  { name: "label", title: "Label", desc: "Accessible label for a control." },
+  { name: "field", title: "Field", desc: "Label + validation wiring." },
+  { name: "form", title: "Form", desc: "Consolidated form validation." },
+  { name: "avatar", title: "Avatar", desc: "Image with fade-in and fallback." },
+  {
+    name: "separator",
+    title: "Separator",
+    desc: "Divider in any orientation.",
+  },
+  { name: "switch", title: "Switch", desc: "Thumb springs between states." },
+  { name: "checkbox", title: "Checkbox", desc: "Mark pops in with a spring." },
+  {
+    name: "checkbox-group",
+    title: "Checkbox Group",
+    desc: "Shared state + select-all.",
+  },
+  {
+    name: "radio-group",
+    title: "Radio Group",
+    desc: "Single-choice with spring dot.",
+  },
+  { name: "slider", title: "Slider", desc: "Thumb swells when grabbed." },
+  { name: "tooltip", title: "Tooltip", desc: "Rises with overlay depth." },
+  { name: "popover", title: "Popover", desc: "Floating panel, overlay depth." },
+  {
+    name: "preview-card",
+    title: "Preview Card",
+    desc: "Link preview on hover.",
+  },
+  { name: "dialog", title: "Dialog", desc: "Modal with top-of-stack depth." },
+  {
+    name: "alert-dialog",
+    title: "Alert Dialog",
+    desc: "Confirm a destructive action.",
+  },
+  { name: "drawer", title: "Drawer", desc: "Swipe-to-dismiss bottom sheet." },
+  {
+    name: "dropdown-menu",
+    title: "Dropdown Menu",
+    desc: "Actions menu, overlay depth.",
+  },
+  { name: "select", title: "Select", desc: "Choose one from a listbox." },
+  { name: "combobox", title: "Combobox", desc: "Filterable option picker." },
+  { name: "context-menu", title: "Context Menu", desc: "Right-click menu." },
+  { name: "tabs", title: "Tabs", desc: "Indicator springs to active tab." },
+  { name: "accordion", title: "Accordion", desc: "Height-animated sections." },
+  {
+    name: "collapsible",
+    title: "Collapsible",
+    desc: "Single expandable region.",
+  },
+  {
+    name: "aspect-ratio",
+    title: "Aspect Ratio",
+    desc: "Locks content to a ratio.",
+  },
+  {
+    name: "breadcrumb",
+    title: "Breadcrumb",
+    desc: "Current page's location.",
+  },
+  {
+    name: "pagination",
+    title: "Pagination",
+    desc: "Active page key in a well.",
+  },
+  { name: "alert", title: "Alert", desc: "Persistent inline callout." },
+  { name: "progress", title: "Progress", desc: "Eased task-completion fill." },
+  { name: "meter", title: "Meter", desc: "Static measurement in a range." },
+  {
+    name: "number-field",
+    title: "Number Field",
+    desc: "Steppers with press depth.",
+  },
+  { name: "otp-field", title: "OTP Field", desc: "One-time-code input." },
+  {
+    name: "scroll-area",
+    title: "Scroll Area",
+    desc: "Fading custom scrollbar.",
+  },
+  { name: "toast", title: "Toast", desc: "Bouncy stacked notifications." },
+  { name: "skeleton", title: "Skeleton", desc: "Pulsing loading placeholder." },
+  {
+    name: "empty-state",
+    title: "Empty State",
+    desc: "Zero-data well with actions.",
+  },
+  {
+    name: "spinner",
+    title: "Spinner",
+    desc: "Loading indicator, motion-safe.",
+  },
+  { name: "badge", title: "Badge", desc: "Miniature embossed status chip." },
+  { name: "card", title: "Card", desc: "Raised surface with sections." },
+  { name: "kbd", title: "Kbd", desc: "Shortcut as an embossed keycap." },
+  {
+    name: "table",
+    title: "Table",
+    desc: "Styled rows on a raised surface.",
+  },
+  {
+    name: "data-table",
+    title: "Data Table",
+    desc: "TanStack grid: filter, page, edit.",
+  },
+  {
+    name: "message",
+    title: "Message",
+    desc: "Chat row: user key, assistant prose.",
+  },
+  {
+    name: "conversation",
+    title: "Conversation",
+    desc: "Stick-to-bottom chat viewport.",
+  },
+  {
+    name: "composer",
+    title: "Composer",
+    desc: "Prompt well with send and stop.",
+  },
+  {
+    name: "response",
+    title: "Response",
+    desc: "Streaming-safe markdown renderer.",
+  },
+  {
+    name: "code-block",
+    title: "Code Block",
+    desc: "Highlighted code well with copy.",
+  },
+  { name: "tool", title: "Tool", desc: "Agentic step + reasoning disclosure." },
+  {
+    name: "typing-indicator",
+    title: "Typing Indicator",
+    desc: "Pre-first-token dots.",
+  },
+  {
+    name: "suggestions",
+    title: "Suggestions",
+    desc: "Scrollable prompt chips.",
+  },
+  { name: "sources", title: "Sources", desc: "Grounding + inline citations." },
+  {
+    name: "chat-timeline",
+    title: "Chat Timeline",
+    desc: "Grouped, dated history.",
+  },
+  {
+    name: "media-toggle",
+    title: "Media Toggle",
+    desc: "Mic/camera/screen call key.",
+  },
+  {
+    name: "voice-visualizer",
+    title: "Voice Visualizer",
+    desc: "Agent-state audio dots.",
+  },
+  {
+    name: "voice-avatar",
+    title: "Voice Avatar",
+    desc: "Avatar with a speaking halo.",
+  },
+  {
+    name: "device-selector",
+    title: "Device Selector",
+    desc: "Mic/camera/output picker.",
+  },
+  {
+    name: "voice-control-bar",
+    title: "Voice Control Bar",
+    desc: "Call pill that morphs into chat.",
+  },
+  {
+    name: "agent-status",
+    title: "Agent Status",
+    desc: "The agent-state dot and chip.",
+  },
+  {
+    name: "branch-chip",
+    title: "Branch Chip",
+    desc: "Press-to-copy branch pill.",
+  },
+  {
+    name: "context-meter",
+    title: "Context Meter",
+    desc: "Context-window usage ring.",
+  },
+  {
+    name: "sidebar",
+    title: "Sidebar",
+    desc: "Collapsible well of sessions.",
+  },
+  {
+    name: "session-item",
+    title: "Session Item",
+    desc: "Session row with hover card.",
+  },
+  {
+    name: "workbench-header",
+    title: "Workbench Header",
+    desc: "The bar over the thread.",
+  },
+  {
+    name: "command-palette",
+    title: "Command Palette",
+    desc: "⌘K launcher on Autocomplete.",
+  },
+  {
+    name: "model-picker",
+    title: "Model Picker",
+    desc: "Provider groups + connection dots.",
+  },
+  {
+    name: "mode-selector",
+    title: "Mode Selector",
+    desc: "Agent/plan/ask segmented keys.",
+  },
+  {
+    name: "dictation-card",
+    title: "Dictation Card",
+    desc: "Editable transcript with ✓/✕.",
+  },
+  {
+    name: "permission-card",
+    title: "Permission Card",
+    desc: "Allow once / session / deny.",
+  },
+  {
+    name: "plan-card",
+    title: "Plan Card",
+    desc: "Approve plans, restore checkpoints.",
+  },
+  {
+    name: "terminal-block",
+    title: "Terminal Block",
+    desc: "Command output with live status.",
+  },
+  {
+    name: "checks-panel",
+    title: "Checks Panel",
+    desc: "CI list with logs + named merge.",
+  },
+  {
+    name: "connector-card",
+    title: "Connector Card",
+    desc: "Integrations with OAuth states.",
+  },
+]
+
+export default function ComponentsIndex() {
+  return (
+    <main className="mx-auto max-w-3xl px-6 py-16">
+      <h1 className="text-3xl font-semibold tracking-tight">Components</h1>
+      <p className="text-muted-foreground mt-2 text-lg">
+        Beautifully animated components you own — Base UI primitives with a
+        motion.dev depth layer.
+      </p>
+
+      {/* install — set up once, then add any component below */}
+      <div className="mt-6 space-y-2">
+        <InstallCommand cmd="bunx --bun @seamui/cli@latest init" />
+        <InstallCommand cmd="bunx --bun @seamui/cli@latest add button" />
+      </div>
+      <p className="text-muted-foreground mt-3 text-sm">
+        <code className="text-foreground">init</code> sets up the theme +
+        foundation (once); then add any component below. Prefer shadcn?{" "}
+        <code className="text-foreground">shadcn add @seamui/&lt;name&gt;</code>
+        .
+      </p>
+
+      <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+        {COMPONENTS.map((c) => (
+          <li key={c.name}>
+            <Link
+              href={`/docs/components/${c.name}`}
+              className="bg-card hover:shadow-raised block rounded-xl border p-4 shadow-resting"
+            >
+              <div className="font-medium">{c.title}</div>
+              <div className="text-muted-foreground mt-1 text-sm">{c.desc}</div>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
+}

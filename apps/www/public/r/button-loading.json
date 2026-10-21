@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-loading",
+  "type": "registry:example",
+  "title": "Button Loading",
+  "registryDependencies": [
+    "https://seamui.dev/r/button.json",
+    "https://seamui.dev/r/spinner.json"
+  ],
+  "files": [
+    {
+      "path": "registry/seam/examples/button-loading.tsx",
+      "content": "import { Button } from \"@/registry/seam/ui/button\"\nimport { Spinner } from \"@/registry/seam/ui/spinner\"\n\nexport default function ButtonLoading() {\n  return (\n    <Button disabled>\n      <Spinner />\n      Please wait\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

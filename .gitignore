@@ -1,0 +1,17 @@
+node_modules
+.next
+dist
+out
+*.tsbuildinfo
+.DS_Store
+.env*
+!.env.example
+
+# next
+next-env.d.ts
+
+# test / coverage
+coverage
+test-results
+playwright-report
+.playwright
