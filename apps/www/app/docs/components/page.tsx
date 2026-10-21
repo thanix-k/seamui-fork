@@ -296,15 +296,15 @@ export default function ComponentsIndex() {
         .
       </p>
 
-      <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+      <ul className="mt-8 grid gap-4 sm:grid-cols-2">
         {COMPONENTS.map((c) => (
           <li key={c.name}>
             <Link
               href={`/docs/components/${c.name}`}
-              className="bg-card hover:shadow-raised block rounded-xl border p-4 shadow-resting"
+              className="bg-card hover:shadow-raised block rounded-xl border p-6 shadow-resting"
             >
-              <div className="font-medium">{c.title}</div>
-              <div className="text-muted-foreground mt-1 text-sm">{c.desc}</div>
+              <div className="text-lg font-medium">{c.title}</div>
+              <div className="text-muted-foreground mt-1.5 text-sm">{c.desc}</div>
             </Link>
           </li>
         ))}
