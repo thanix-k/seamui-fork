@@ -11,7 +11,7 @@ import { useHaptics, type HapticPreset } from "@/lib/haptics"
 
 const buttonVariants = cva(
   // base — no CSS transition classes; motion.dev owns transform/shadow.
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg squircle text-sm font-medium outline-none select-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-sm font-medium outline-none select-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -29,8 +29,8 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-10 px-5 py-2",
-        sm: "h-9 rounded-md px-3.5 text-xs",
-        lg: "h-11 rounded-lg px-7",
+        sm: "h-9 px-3.5 text-xs",
+        lg: "h-11 px-7",
         icon: "size-10",
       },
     },
